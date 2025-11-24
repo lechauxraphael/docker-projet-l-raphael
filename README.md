@@ -35,13 +35,14 @@ Fonctionnalités :
 ## Installation
 1. Cloner le projet :
 ---bash
+   
 git clone https://github.com/lechauxraphael/docker-projet-l-raphael.git
 cd docker-projet-l-raphael
 
-2. Créer le fichier .env à partir du fichier .env.dist :
+3. Créer le fichier .env à partir du fichier .env.dist :
    cp .env.dist .env
 
-3. Modifier les valeurs si nécéssaire:
+4. Modifier les valeurs si nécéssaire:
   Modifier les valeurs si nécessaire :
     DB_ROOT_PASSWORD=root
     DB_NAME=bandnames
