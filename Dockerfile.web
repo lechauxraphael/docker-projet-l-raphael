@@ -1,0 +1,16 @@
+FROM python:3.12-slim
+ARG PY_ENV=production
+ENV PYTHONUNBUFFERED=1
+ENV FLASK_APP=app.app
+ENV FLASK_RUN_HOST=0.0.0.0
+ENV FLASK_RUN_PORT=8080
+RUN addgroup --system appgroup && adduser --system --ingroup appgroup appuser
+WORKDIR /app
+COPY requirements.txt /app/requirements.txt
+RUN pip install --no-cache-dir -r /app/requirements.txt
+COPY app /app/app
+COPY db /app/db
+RUN chown -R appuser:appgroup /app
+USER appuser
+EXPOSE 8080
+CMD ["flask","run","--host=0.0.0.0","--port=8080"]
